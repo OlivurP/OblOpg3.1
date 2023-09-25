@@ -1,0 +1,52 @@
+﻿@page
+@model OblOpg3._1.Pages.Frugter.FrugtPageModel
+
+@{
+    ViewData["Title"] = "FrugtPage";
+}
+
+<h1>FrugtPage</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FrugtList[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FrugtList[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FrugtList[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FrugtList[0].Image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.FrugtList) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <image src = @Html.DisplayFor(modelItem => item.Image)></image>
+            </td>
+            <td>
+                <form method="post" asp-page-handler="AddToKurv">
+                    <input type="hidden" value="@item.Id" name="frugtId"/>
+                    <button>Køb</button>
+                    </form> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

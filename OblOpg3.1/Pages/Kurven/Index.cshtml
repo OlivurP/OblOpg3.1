@@ -1,0 +1,16 @@
+﻿@page
+@model OblOpg3._1.Pages.Kurven.IndexModel
+@{
+}
+
+
+<table class="table" style="width:300px">
+    @foreach(Model.Kurv k in IndexModel.kurvList)
+    {
+        <tr>
+            <td>@k.Id</td>
+            <td>@k.UserId</td>
+            <td>@k.FrugtId</td>
+        </tr>
+    }
+</table>
